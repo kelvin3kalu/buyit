@@ -1,0 +1,147 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+<title>Buyit - About</title>
+{% endblock title %}
+
+{% block style %}
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4; 
+    }
+
+
+    .butt button {
+        background-color: grey; /* Green */
+        border: none;
+        color: black;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 12px;
+        border: none;
+    }
+        .container {
+      margin: auto;
+      padding: 40px 20px;
+      background-color: #fff;
+    } -->
+    .intro {
+
+        background-image: url("{% static 'images/blue backgound.jpeg' %}");
+        background-size: cover;
+        text-align: center;
+
+
+    }
+    .intro h1 {
+        font-size: 7rem;
+        margin-bottom: 70px;
+        font-style: italic;
+        color: #f4f4f4;
+    }
+    .intro h1 span{
+        font-family: 'Tangerine', serif;
+    }
+    .intro p {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+        color: #f4f4f4;
+        margin-bottom: 70px;
+    }
+    .why{
+        text-align: center;
+    }
+    .why h2{
+        font-size: 7rem;
+        color: rgb(18, 101, 253);
+        font-family: 'Tangerine', serif;
+        font-weight: bolder;
+        text-align: center;
+    }
+    
+   @media screen and (max-width=600px) {
+    .why h2{
+        font-size: 4rem;
+        color: rgb(18, 101, 253);
+        font-family: 'Tangerine', serif;
+        font-weight: bolder;
+        text-align: center;
+    }
+   }
+</style>
+{% endblock style %}
+
+
+{% block content %}
+
+
+
+  <!-- About Content -->
+  <div class="container">
+    <div class="intro">
+      <h1>About <span class="logo">Buyit</span></h1>
+      <p>
+        Welcome to <strong>Buyit</strong>, your trusted online shopping destination for quality products at affordable prices.
+        We believe that shopping should be <strong>easy, fast, and secure</strong> – that’s why we created this platform to connect people with the products they love, without the stress of going to a physical market.
+      </p>
+    </div>
+    <div class="why">
+      <h2>What We Offer</h2>
+      <ul>
+        <li>Phones, Tablets, and Accessories</li>
+        <li>Fashion for Men, Women, and Kids</li>
+        <li> Groceries and Household Essentials</li>
+        <li> Electronics and Gadgets</li>
+        <li>Home and Kitchen Appliances</li>
+      </ul>
+      <p>Whether you're shopping for daily needs or special occasions, we’ve got you covered.</p>
+    </div>
+
+    <div class="why">
+      <h2>Why Choose Us?</h2>
+    <ul>
+      <li><strong>Affordable Prices:</strong> We work hard to give you the best deals.</li>
+      <li><strong>Fast Delivery:</strong> We deliver your orders to your doorstep quickly.</li>
+      <li><strong>Secure Payments:</strong> Your transactions are 100% safe.</li>
+      <li><strong>Friendly Support:</strong> Our team is ready to assist you anytime.</li>
+    </ul>
+    </div>
+    
+    <div class="why">
+      <h2>Our Mission</h2>
+      <p>
+        Our mission is to make online shopping <strong>simple, reliable, and enjoyable</strong> for everyone in Nigeria and beyond.
+        We’re building a platform where you can find everything you need — all in one place.
+      </p>
+    </div>
+
+    <div class="why">
+      <h2>Join Our Community</h2>
+    <p>
+      Thousands of users already trust <strong>Buyit</strong> for their shopping.
+      We invite you to join us, explore our store, and enjoy the best online shopping experience.
+    </p>
+    </div>
+    
+    <div class="why">
+      <h2>Get in Touch</h2>
+    <p>
+      Have questions or feedback?  
+      Feel free to <a href="/contact">Contact Us</a> — we’d love to hear from you.
+    </p>
+    </div>
+    
+  </div>
+  {% endblock content %}
+<!-- <script>
+    const copy = document.getElementById('date')
+    copy.innerHTML = new Date().getFullYear()
+</script> -->

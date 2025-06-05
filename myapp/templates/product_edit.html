@@ -1,0 +1,11 @@
+{% block content %}
+
+<form action="{% url 'product_edit' product.id %}" method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    
+    <button type="submit">Update</button>
+    <a href="{% url 'product_list' %}">Cancel</a>
+</form>
+
+{% endblock %}
