@@ -54,7 +54,7 @@
     display: inline-block;
     margin-top: 15px;
     padding: 10px 20px;
-    background-color: #5cb85c;
+    background-color: rgb(14,11,12);
     color: white;
     text-decoration: none;
     font-size: 16px;
@@ -63,7 +63,7 @@
   }
 
   .add-products-link:hover {
-    background-color: #4cae4c;
+    background-color: rgb(14,11,12);
   }
 
   /* Empty cart message */
@@ -73,7 +73,7 @@
     text-align: center;
     margin-top: 30px;
   }
-  .butt{
+  .buttr{
     display: flex;
     justify-content: space-between;
   }
@@ -101,10 +101,11 @@
     {% endfor %}
 
     <p class="cart-total">Total: ₦{{ total }}</p>
-    <div class="butt">
+    <div class="buttr">
       <div class="addpur">       
         <a href="{% url 'product_list' %}" class="add-products-link">Add More Products</a>
-        <a href="" class="add-products-link">Purchase</a>
+        <a href="{% url 'initialize_payment' %}" class="add-products-link">Purchase</a>
+
       </div>
       <div class="leavecart">
         <a href="{% url 'product_list' %}" class="add-products-link">Leave cart</a>

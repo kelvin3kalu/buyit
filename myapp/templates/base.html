@@ -18,15 +18,15 @@
 
 {% endblock style %}
 <style>
-    
-body {
-    padding-top: 100px;
-}
+    body{
+        background-color: rgb(205,134,68);
+    }
+
 
 header {
-    background-image: url("{% static 'images/blue backgound.jpeg' %}");
+    background-color: rgb(14,11,12);
     background-size: cover;
-    color: white;
+    color: rgb(205,134,68);
     padding: 10px 0;
     text-align: center;
     position: fixed;
@@ -41,6 +41,7 @@ nav {
     justify-content: space-between;
     align-items: center;
     padding: 0 20px;
+    height: 20px;
 }
 nav ul {
     list-style-type: none;
@@ -53,20 +54,20 @@ nav ul li {
 }
 
 nav ul li a {
-    color: white;
+    color: rgb(205,134,68);
     text-decoration: none;
 }
 .logo a {
-    color: #f4f4f4;
+    color: rgb(205,134,68);
     text-decoration: none;
     font-family: 'Tangerine', serif;
     font-size: 25px;
     font-style: italic;
 }
 .butt button {
-    background-color: grey;
+    background-color: rgb(205,134,68);
     border: none;
-    color: white;
+    color: rgb(14,11,12);
     padding: 10px 20px;
     text-align: center;
     text-decoration: none;
@@ -78,53 +79,55 @@ nav ul li a {
     border: none;
 }
 
-footer {
-    background-color: #222;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 30px;
-    justify-content: space-between;
-    margin: auto;
-    height: 600px;
-}
-.lasdiv h3 {
-    color: #fff;
-}
-.lasdiv li {
-    list-style: none;
-}
-.lasdiv a {
-    color: #fff;
-    text-decoration: none;
-}
+  footer{
+        
+        
+        gap: 30px;
+        justify-content: space-between;
+        margin: auto;
+        height: 600px;
+        background-color: rgb(14,11,12);
+        
+    }
+    .lasdiv h3{
+        color: rgb(205,134,68);
+    }
+    .lasdiv li{
+        list-style: none;
+    }
+    .lasdiv a{
+        color: rgb(205,134,68);
+        text-decoration: none;
+    }
 
-.contact h3 {
-    color: #fff;
-}
-.contact li {
-    list-style: none;
-}
-.contact a {
-    color: #fff;
-    text-decoration: none;
-}
+    .contacte h3{
+        color: rgb(205,134,68);
+    }
+    .contacte li{
+        list-style: none;
+        color: rgb(205,134,68);
+    }
+    .contacte p{
+        color: rgb(205,134,68);
+        text-decoration: none;
+    }
 
-.social h3 {
-    color: #fff;
-}
-.social li {
-    list-style: none;
-}
-.social a {
-    color: #fff;
-    text-decoration: none;
-}
-.right {
-    text-align: center;
-}
-.right p {
-    color: #fff;
-}
+    .social h3{
+        color:rgb(205,134,68);
+    }
+    .social li{
+        list-style: none;
+    }
+    .social a{
+        color: rgb(205,134,68);
+        text-decoration: none;
+    }
+    .right{
+        text-align: center;
+    }
+    .right p{
+        color: rgb(205,134,68);
+    } 
 .tlink {
     display: none;
 }
@@ -162,10 +165,25 @@ footer {
 .toogle {
     background-color: grey;
     border-radius: 5px;
-    width: 200px;
+    width: auto;
 }
 .hambuger {
     display: none;
+}
+@media screen and (max-width: 768px) {
+    .butt{
+        display: none;
+    }
+    .link{
+        display: none;
+    }
+    .hambuger{
+        display: block;
+        color: #000;
+        padding: 10px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
 }
 @media screen and (max-width: 768px) {
     .butt{
@@ -211,14 +229,12 @@ footer {
                     <li><a href="{% url 'home' %}">Home</a></li>
                     <li><a href="{% url 'about' %}">About</a></li>
                     <li><a href="{% url 'contact' %}">Contact</a></li>
+                    <li><a href="{% url 'login' %}">Login</a></li>
+                    <li><a href="{% url 'register' %}">Register</a></li>
+                    <li><a href="{% url 'product_list' %}">Products</a></li>
                 </ul>
             </div>
-            <div class="tbutt">
-                <a href="{% url 'login' %}"><button>Login</button></a><br>
-                <a href="{% url 'register' %}"><button>Register</button></a><br>
-                <a href="{% url 'product_list' %}"><button>Products</button></a><br>
-                
-            </div>
+            
         </div>
     </header>
     {% endblock header %}
@@ -242,7 +258,7 @@ footer {
                 <li><a href="{% url 'terms' %}">Terms and Condition</a></li>
             </ul>
         </div>
-        <div class="contact">
+        <div class="contacte">
             <h3>Contact Us</h3>
             <p>Email: Buyit@gmail.com</p>
             <p>Phone: +23481163072</p>
@@ -298,8 +314,8 @@ footer {
         lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // Avoid negative scroll
     });
 
-const lastmodified = document.lastModified
-const lasmodi = document.querySelector('.lasmodi')
+// const lastmodified = document.lastModified
+// const lasmodi = document.querySelector('.lasmodi')
 lasmodi.textContent = lastmodified
     </script>
     {% endblock footer %}

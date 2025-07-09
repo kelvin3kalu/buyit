@@ -6,36 +6,13 @@
 
 {% block style %}
 <style>
-    body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: #f4f4f4; 
-    }
 
 
-    .butt button {
-        background-color: grey; /* Green */
-        border: none;
-        color: black;
-        padding: 10px 20px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 16px;
-        margin: 4px 2px;
-        cursor: pointer;
-        border-radius: 12px;
-        border: none;
-    }
-        .container {
-      margin: auto;
-      padding: 40px 20px;
-      background-color: #fff;
-    } -->
+
+    
     .intro {
 
-        background-image: url("{% static 'images/blue backgound.jpeg' %}");
+        background-image: url("{% static 'images/top-view-shopping-cart-arrangement-copy-space.jpg' %}");
         background-size: cover;
         text-align: center;
 
@@ -45,32 +22,37 @@
         font-size: 7rem;
         margin-bottom: 70px;
         font-style: italic;
-        color: #f4f4f4;
+        color: rgb(205,134,68);
     }
     .intro h1 span{
         font-family: 'Tangerine', serif;
     }
-    .intro p {
+    
+        .intro p {
         font-size: 1.5rem;
         margin-bottom: 20px;
-        color: #f4f4f4;
+        color: rgb(205,134,68);
         margin-bottom: 70px;
     }
-    .why{
-        text-align: center;
+   
+     .fade-in-section{
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.6s ease-out,transform 0.6s ease-out;
+        margin: 100px auto;
+        max-width: 600px;
+        padding: 40px;
+        border-radius: 10px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
     }
-    .why h2{
-        font-size: 7rem;
-        color: rgb(18, 101, 253);
-        font-family: 'Tangerine', serif;
-        font-weight: bolder;
-        text-align: center;
+    .fade-in-section.visible{
+        opacity: 1;
+        transform: translateY(0);
     }
-    
    @media screen and (max-width=600px) {
     .why h2{
         font-size: 4rem;
-        color: rgb(18, 101, 253);
+        color:rgb(205,134,68);
         font-family: 'Tangerine', serif;
         font-weight: bolder;
         text-align: center;
@@ -89,11 +71,11 @@
     <div class="intro">
       <h1>About <span class="logo">Buyit</span></h1>
       <p>
-        Welcome to <strong>Buyit</strong>, your trusted online shopping destination for quality products at affordable prices.
-        We believe that shopping should be <strong>easy, fast, and secure</strong> – that’s why we created this platform to connect people with the products they love, without the stress of going to a physical market.
+        Welcome to <strong>Buyit</strong>, your trusted online shopping destination for quality products at affordable prices.</p>
+        <p>We believe that shopping should be <strong>easy, fast, and secure</strong> – that’s why we created this platform to connect people with the products they love, without the stress of going to a physical market.
       </p>
     </div>
-    <div class="why">
+    <div class="fade-in-section">
       <h2>What We Offer</h2>
       <ul>
         <li>Phones, Tablets, and Accessories</li>
@@ -105,7 +87,7 @@
       <p>Whether you're shopping for daily needs or special occasions, we’ve got you covered.</p>
     </div>
 
-    <div class="why">
+    <div class="fade-in-section">
       <h2>Why Choose Us?</h2>
     <ul>
       <li><strong>Affordable Prices:</strong> We work hard to give you the best deals.</li>
@@ -115,7 +97,7 @@
     </ul>
     </div>
     
-    <div class="why">
+    <div class="fade-in-section">
       <h2>Our Mission</h2>
       <p>
         Our mission is to make online shopping <strong>simple, reliable, and enjoyable</strong> for everyone in Nigeria and beyond.
@@ -123,7 +105,7 @@
       </p>
     </div>
 
-    <div class="why">
+    <div class="fade-in-section">
       <h2>Join Our Community</h2>
     <p>
       Thousands of users already trust <strong>Buyit</strong> for their shopping.
@@ -131,7 +113,7 @@
     </p>
     </div>
     
-    <div class="why">
+    <div class="fade-in-section">
       <h2>Get in Touch</h2>
     <p>
       Have questions or feedback?  
@@ -141,7 +123,26 @@
     
   </div>
   {% endblock content %}
-<!-- <script>
-    const copy = document.getElementById('date')
-    copy.innerHTML = new Date().getFullYear()
-</script> -->
+
+ {% block script %} 
+ <script>
+
+
+const sections = document.querySelectorAll('.fade-in-section')
+const observer = new IntersectionObserver((entries,observer) => {
+            entries.forEach((entry) => {
+                if(entry.isIntersecting){
+                    entry.target.classList.add('visible')
+                    observer.unobserve(entry.target)
+                }
+            })
+        },{
+            threshold: 0.1
+        }) 
+
+        
+        sections.forEach((section) => {
+            observer.observe(section)
+        })
+</script>
+{% endblock script %}
