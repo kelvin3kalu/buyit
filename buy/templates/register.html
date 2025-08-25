@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+<title>Buyit - Register</title>
+{% endblock title %}
+
+{% block style %}
+<style>
+    
+    .containerr {
+        background-color: rgb(14,11,12);
+        width: 100%;
+        max-width: 400px;
+        margin-left: auto;
+        margin-right: auto;
+       
+        padding: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+    }
+    h2 {
+        text-align: center;
+        color: rgb(205,134,68);
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+    form {
+        display: flex;
+        flex-direction: column;
+    }
+    form input, form button {
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 16px;
+    }
+    form input:focus, form button:focus {
+        outline: none;
+        border-color: rgb(205,134,68);;
+    }
+    button {
+        background-color: rgb(205,134,68);;
+        color: white;
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+    button:hover {
+        background-color: #0056b3;
+    }
+    p {
+        text-align: center;
+        font-size: 14px;
+        color: rgb(205,134,68);
+    }
+    p a {
+        color: rgb(205,134,68);
+        text-decoration: none;
+    }
+    p a:hover {
+        text-decoration: underline;
+    }
+    @media screen and (max-width: 600px) {
+        .containerr {
+            width: 90%;
+            padding: 15px;
+        }
+        h2 {
+            font-size: 20px;
+        }
+        form input, form button {
+            font-size: 14px;
+        }
+    }
+</style>
+{% endblock style %}
+
+{% block content %}
+<div class="containerr">
+    <h2>Register</h2>
+    <form method="POST" action="{% url 'register' %}">
+        {% csrf_token %}
+        {% for message in messages %}
+    {{ message }}
+{% endfor %}
+        {{ form.as_p }}
+        <button type="submit">Register</button>
+    </form>
+    <p>Already have an account? <a href="{% url 'login' %}">Login here</a></p>
+</div>
+{% endblock content %}

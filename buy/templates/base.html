@@ -1,0 +1,339 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buyit</title>
+    {%  block title%}
+    {% endblock title %}
+    <!-- <link rel="stylesheet" href="{% static 'css/styles.css' %}"> -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine">
+    <script src="https://kit.fontawesome.com/1cd3e356b0.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+
+{% block style %}
+
+{% endblock style %}
+<style>
+    body{
+        background-color: rgb(205,134,68);
+    }
+
+
+header {
+    background-color: rgb(14,11,12);
+    background-size: cover;
+    color: rgb(205,134,68);
+    padding: 10px 0;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    transition: opacity 0.4s ease-in-out;
+
+
+}
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    height: 20px;
+}
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: rgb(205,134,68);
+    text-decoration: none;
+}
+.logo a {
+    color: rgb(205,134,68);
+    text-decoration: none;
+    font-family: 'Tangerine', serif;
+    font-size: 25px;
+    font-style: italic;
+}
+.butt button {
+    background-color: rgb(205,134,68);
+    border: none;
+    color: rgb(14,11,12);
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 12px;
+    border: none;
+}
+
+  footer{
+        
+        
+        gap: 30px;
+        justify-content: space-between;
+        margin: auto;
+        height: 600px;
+        background-color: rgb(14,11,12);
+        
+    }
+    .lasdiv h3{
+        color: rgb(205,134,68);
+    }
+    .lasdiv li{
+        list-style: none;
+    }
+    .lasdiv a{
+        color: rgb(205,134,68);
+        text-decoration: none;
+    }
+
+    .contacte h3{
+        color: rgb(205,134,68);
+    }
+    .contacte li{
+        list-style: none;
+        color: rgb(205,134,68);
+    }
+    .contacte p{
+        color: rgb(205,134,68);
+        text-decoration: none;
+    }
+
+    .social h3{
+        color:rgb(205,134,68);
+    }
+    .social li{
+        list-style: none;
+    }
+    .social a{
+        color: rgb(205,134,68);
+        text-decoration: none;
+    }
+    .right{
+        text-align: center;
+    }
+    .right p{
+        color: rgb(205,134,68);
+    } 
+.tlink {
+    display: none;
+}
+
+.tbutt{
+    display: none;
+}
+.tbutt button {
+    background-color: white;
+    border: none;
+    color: grey;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 12px;
+    border: none;
+}
+
+.toogle ul {
+    list-style-type: none;
+    padding: 0;
+}
+.fa-solid{
+    color: white;
+}
+.content {
+}
+
+.toogle ul li a {
+    color: white;
+    text-decoration: none;
+}
+.toogle {
+    background-color: grey;
+    border-radius: 5px;
+    width: auto;
+}
+.hambuger {
+    display: none;
+}
+@media screen and (max-width: 768px) {
+    .butt{
+        display: none;
+    }
+    .link{
+        display: none;
+    }
+    .hambuger{
+        display: block;
+        color: #000;
+        padding: 10px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    header {
+        padding: 10px;
+        width: 100%;
+    }
+}
+@media screen and (max-width: 600px) {
+    .butt{
+        display: none;
+    }
+    .link{
+        display: none;
+    }
+    .hambuger{
+        display: block;
+        color: #000;
+        padding: 10px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    header {
+        padding: 10px;
+        width: 100%;
+    }
+}
+</style>
+    {% block header %}
+    <header>
+        <nav>
+            <div class="logo">
+                <a href=""><h1>Buyit</h1></a>
+            </div>
+            <div class="link">
+                <ul>
+                    <li><a href="{% url 'home' %}">Home</a></li>
+                    <li><a href="{% url 'about' %}">About</a></li>
+                    <li><a href="{% url 'contact' %}">Contact</a></li>
+                </ul>
+            </div>
+            <div class="butt">
+                <a href="{% url 'login' %}"><button>Login</button></a>
+                <a href="{% url 'register' %}"><button>Register</button></a>
+                <a href="{% url 'product_list' %}"><button>Products</button></a>
+                
+            </div>
+
+            <div class="hambuger"><i class="fa-solid fa-bars fa-2x"></i></div>
+        </nav>
+        <div class="toogle">
+            <div class="tlink">
+                <ul>
+                    <li><a href="{% url 'home' %}">Home</a></li>
+                    <li><a href="{% url 'about' %}">About</a></li>
+                    <li><a href="{% url 'contact' %}">Contact</a></li>
+                    <li><a href="{% url 'login' %}">Login</a></li>
+                    <li><a href="{% url 'register' %}">Register</a></li>
+                    <li><a href="{% url 'product_list' %}">Products</a></li>
+                </ul>
+            </div>
+            
+        </div>
+    </header>
+    {% endblock header %}
+<div class="content">
+    {% block content %}
+    <!-- Page-specific content will load here -->
+    {% endblock content %}
+</div>
+
+
+    {% block footer %}
+    
+    <footer>
+        
+        <div class="lasdiv">
+            <h3>Quick links</h3>
+            <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'login' %}">Login</a></li>
+                <li><a href="{% url 'product_list' %}">Shop</a></li>
+                <li><a href="{% url 'contact' %}">Contact</a></li>
+                <li><a href="{% url 'faqs' %}">FAQs</a></li>
+                <li><a href="{% url 'terms' %}">Terms and Condition</a></li>
+            </ul>
+        </div>
+        <div class="contacte">
+            <h3>Contact Us</h3>
+            <p>Email: Buyit@gmail.com</p>
+            <p>Phone: +23481163072</p>
+            <p>Address: 45 Market road, Aba, Nigeria</p>
+        </div>
+        <div class="social">
+            <h3>Follow Us</h3>
+            <p><a href="">Facebook</a></p>
+            <p><a href="">Instagram</a></p>
+            <p><a href="">Liinkedln</a></p>
+        </div>
+        <div class="right">
+            <p>&copy; <span class="date"></span> All right reserved</p>
+            <p>Last Modified: <span class="lasmodi"></span></p>
+        </div>
+    </footer>
+    <script>
+        const copy = document.querySelector('.date');
+        copy.innerHTML = new Date().getFullYear();
+
+        const hamburger = document.querySelector('.hambuger');
+        hamburger.addEventListener('click', () => {
+            const tlink = document.querySelector('.tlink');
+            const tbutt = document.querySelector('.tbutt');
+            const butt = document.querySelector('.butt');
+            const link = document.querySelector('.link');
+            if (tlink.style.display === 'block') {
+                tlink.style.display = 'none';
+                tbutt.style.display = 'none';
+                hamburger.innerHTML = '<i class="fa-solid fa-bars fa-2x"></i>';
+            } else {
+                tlink.style.display = 'block';
+                tbutt.style.display = 'block';
+                hamburger.innerHTML = '<i class="fa-solid fa-xmark fa-2x"></i>';
+            }
+        });
+
+
+        let lastScrollTop = 0;
+    const header = document.querySelector('header');
+
+    window.addEventListener('scroll', () => {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+        if (scrollTop > lastScrollTop) {
+            // Scrolling down
+            header.style.opacity = "0.6";
+        } else {
+            // Scrolling up
+            header.style.opacity = "1";
+        }
+
+        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // Avoid negative scroll
+    });
+
+// const lastmodified = document.lastModified
+// const lasmodi = document.querySelector('.lasmodi')
+lasmodi.textContent = lastmodified
+    </script>
+    {% endblock footer %}
+
+    {% block script %}
+    
+    {% endblock script %}
+</body>
+</html>

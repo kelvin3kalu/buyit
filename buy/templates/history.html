@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<style>
+  body {
+    background-color: #f9f9f9;
+    font-family: 'Segoe UI', sans-serif;
+  }
+
+  .orders-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+  }
+
+  .order-card {
+    background-color: #fff;
+    border-left: 5px solid #2c3e50;
+    padding: 20px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+  }
+
+  .order-card:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+    transform: translateY(-2px);
+  }
+
+  .order-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+
+  .order-items {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 10px;
+  }
+
+  .order-items li {
+    background-color: #ecf0f1;
+    padding: 8px 12px;
+    border-radius: 6px;
+    margin-bottom: 6px;
+  }
+
+  .no-orders {
+    text-align: center;
+    color: #999;
+    margin-top: 40px;
+    font-size: 18px;
+  }
+</style>
+
+<div class="orders-container">
+  <h2 style="text-align: center;">🧾 My Order History</h2>
+  <a href="{% url 'clear_order_history' %}" class="btn btn-warning">Clear Order History</a>
+
+  {% for order in orders %}
+    <div class="order-card">
+      <div class="order-header">
+        <span>Order ID: #{{ order.id }}</span>
+        <span>{{ order.created_at|date:"F j, Y - h:i A" }}</span>
+      </div>
+      <p><strong>Reference:</strong> {{ order.reference }}</p>
+      <p><strong>Total:</strong> ₦{{ order.total_amount }}</p>
+
+      <h4>Items:</h4>
+      <ul class="order-items">
+        {% for item in order.items.all %}
+          <li>{{ item.product.name }} × {{ item.quantity }}</li>
+        {% endfor %}
+      </ul>
+      <a href="{% url 'remove_order' order.id %}" class="btn btn-danger">Delete Order</a>
+    </div>
+    
+
+  {% empty %}
+    <div class="no-orders">
+      🛒 You have not placed any orders yet.
+    </div>
+  {% endfor %}
+</div>
+
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+ {% block title %} <title>{{ category.name }} - Products</title>{% endblock %}
+ {% load static %}
+ {% block style %}
+{% block content %}
+  <h1>{{ category.name }}</h1>
+
+  {% for product in products %}
+    <div style="border: 1px solid #ccc; padding: 10px;">
+      <h3><a href="{% url 'product_detail' product.id %}">{{ product.name }}</a></h3>
+      <img src="{{ product.image.url }}" width="150">
+      <p>{{ product.description }}</p>
+      <p>₦{{ product.price }}</p>
+    </div>
+  {% empty %}
+    <p>No products found in this category.</p>
+  {% endfor %}
+{% endblock %}

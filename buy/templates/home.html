@@ -1,0 +1,347 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+<title>Buyit</title>
+{% endblock title %}
+{% block style %}
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine">
+<style>
+
+
+   
+    .intro {
+         /* Adjusted for fixed header */
+        background-image: url("{% static 'images/top-view-shopping-cart-arrangement-copy-space.jpg' %}");
+        background-size: cover;
+        text-align: center;
+
+
+    }
+    .intro h1 {
+        font-size: 7rem;
+        
+        font-style: italic;
+        color: rgb(205,134,68);
+    }
+    .intro h1 span{
+        font-family: 'Tangerine', serif;
+    }
+    .intro p {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+        color: rgb(205,134,68);
+        
+    }
+    .why{
+        text-align: center;
+    }
+    .why h1{
+        font-size: 7rem;
+        color: rgb(14,11,12);
+        font-family: 'Tangerine', serif;
+        font-weight: bolder;
+    }
+    .ret{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .reliable{
+        background-color: rgb(14,11,12);
+        width: 300px;
+        margin: 40px auto;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(20, 20, 20, 0.1);
+    }
+    .reliable h2{
+        font-size: 60px;
+        color: rgb(205,134,68);
+    }
+    .reliable p{
+        font-size: 20px;
+        color: rgb(205,134,68);
+    }
+    .easy{
+        background-color: rgb(14,11,12);
+        width: 300px;
+        margin: 40px auto;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(20, 20, 20, 0.1);
+    }
+    .easy h2{
+        color: rgb(205,134,68);
+        font-size: 60px;
+    }
+    .easy p{
+        font-size: 20px;
+        color: rgb(205,134,68);
+    }
+    .secure{
+        width: 300px;
+        margin: 40px auto;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(20, 20, 20, 0.1);
+        background-color: rgb(14,11,12);
+    }
+    .secure h2{
+        font-size: 60px;
+        color: rgb(205,134,68);
+    }
+    .secure p{
+        font-size: 20px;
+        color: rgb(205,134,68);
+    }
+    .secure{
+        width: 300px;
+        margin: 40px auto;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(20, 20, 20, 0.1);
+        background-color: rgb(14,11,12);
+    }
+    .secure h2{
+        color: rgb(205,134,68);
+        font-size: 60px;
+    }
+    .secure p{
+        font-size: 20px;
+        color: rgb(205,134,68);
+    }
+    .aj{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .ada{
+        width: 300px;
+        margin: 40px auto;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(20, 20, 20, 0.1);
+        background-color: rgb(14,11,12);
+    }
+    .ada h2{
+        text-align: right;
+        color: rgb(205,134,68);
+    }
+    .ada p{
+        font-size: 20px;
+        color: rgb(205,134,68);
+    }
+    .john{
+        width: 300px;
+        margin: 40px auto;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(20, 20, 20, 0.1);
+        background-color: rgb(14,11,12);
+    }
+    .john h2{
+        text-align: right;
+        color: rgb(205,134,68);
+    }
+    .john p{
+        color: rgb(205,134,68);
+        font-size: 20px;
+    }
+    .support{
+        background-color: rgb(14,11,12);
+        width: 300px;
+        margin: 40px auto;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(20, 20, 20, 0.1);
+    }
+    .support h2{
+        font-size: 60px;
+        color: rgb(205,134,68);
+    }
+    .support p{
+        font-size: 20px;
+        color: rgb(205,134,68);
+    }
+    .secure{
+        background-color: rgb(14,11,12);
+        width: 300px;
+        margin: 40px auto;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(20, 20, 20, 0.1);
+    }
+    
+    
+    .secure h2{
+        color: rgb(205,134,68);
+        font-size: 60px;
+    }
+    .secure p{
+        color: rgb(205,134,68);
+        font-size: 20px;
+    }
+   
+    @media screen and (max-width:768px){
+    .why{
+        text-align: center;
+    }
+    .why h1{
+        font-size: 2rem;
+        color:rgb(14,11,12);
+        font-family: 'Tangerine', serif;
+        font-weight: bolder;
+    }
+        .intro h1 {
+        font-size: 3rem;
+        margin-bottom: 70px;
+        font-style: italic;
+        color: #f4f4f4;
+    }
+    .intro h1 span{
+        font-family: 'Tangerine', serif;
+    }
+    .intro p {
+        font-size: 1rem;
+        margin-bottom: 20px;
+        color: #f4f4f4;
+        margin-bottom: 70px;
+    }
+    }
+
+  @media screen and (max-width:600px){
+    .why{
+        text-align: center;
+    }
+    .why h1{
+        font-size: 1.5rem;
+        color:rgb(14,11,12);
+        font-family: 'Tangerine', serif;
+        font-weight: bolder;
+    }
+    .intro h1 {
+        font-size: 2rem;
+        margin-bottom: 70px;
+        font-style: italic;
+        color: #f4f4f4;
+
+    }
+    .intro h1 span{
+        font-family: 'Tangerine', serif;
+    }
+    .intro p {
+        font-size: 1rem;
+        margin-bottom: 20px;
+        color: #f4f4f4;
+        margin-bottom: 70px;
+    }
+}
+
+  @media screen and (max-width:600px){
+    .why{
+        text-align: center;
+    }
+    .why h1{
+        font-size: 1.5rem;
+        color:rgb(14,11,12);
+        font-family: 'Tangerine', serif;
+        font-weight: bolder;
+    }
+    .intro h1 {
+        font-size: 2rem;
+        margin-bottom: 70px;
+        font-style: italic;
+        color: #f4f4f4;
+
+    }
+    .intro h1 span{
+        font-family: 'Tangerine', serif;
+    }
+    .intro p {
+        font-size: 1rem;
+        margin-bottom: 20px;
+        color: #f4f4f4;
+        margin-bottom: 70px;
+    }
+}
+</style>
+{% endblock style %}
+
+
+{% comment %} {% block header %}
+<header>
+
+    <nav>
+        <div class="logo">
+            <a href=""><h1>Buyit</h1></a>
+        </div>
+        <div class="link">
+            <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'about' %}">About</a></li>
+                <li><a href="{% url 'contact' %}">Contact</a></li>
+            </ul>
+        </div>
+        <div class="butt">
+            <a href="{% url 'login' %}"><button>Login</button></a>
+            <a href="{% url 'register' %}"><button>Register</button></a>
+        </div>
+    </nav>
+</header>
+{% endblock header %} {% endcomment %}
+
+{% block content %}
+
+<main>
+    <div class="container">
+        <div class="intro">    
+            <h1>Welcome to <span>Buyit</span></h1>
+            <p>Your one-stop shop for all your needs.</p>
+            <p>Explore our wide range of products and services.</p>
+            <p>Join us today and start shopping!</p>
+        </div>
+        <div class="why">
+            <h1>Why join us ?</h1>
+            <div class="ret">
+                <div class="reliable">
+                    <h2>Reliable</h2>
+                    <p>We offer a wide range of products and services that are reliable and trustworthy.</p>
+                </div>
+                <div class="easy">
+                    <h2>Easy to use</h2>
+                    <p>Our platform is user-friendly and easy to navigate, making your shopping experience seamless.</p>
+                </div>
+                <div class="secure">
+                    <h2>Secure</h2>
+                    <p>Your security is our priority. We ensure that your personal information is safe and secure.</p>
+                </div>
+                <div class="support">
+                    <h2>24/7 Support</h2>
+                    <p>Our customer support team is available 24/7 to assist you with any queries or issues.</p>
+                </div>
+            </div>
+            <hr>
+            <div class="trust">
+                <h1>What are people saying</h1>
+                <div class="aj">
+                    <div class="ada">
+                        <p>"Very fast delivery and great customer service"</p>
+                        <h2 class="owner">-Ada, Lagos</h2>
+                    </div>
+                    <div class="john">
+                        <p>"I found everything I needed in one place. Excellent site!"</p>
+                        <h2 class="owner">-John, Abuja</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+</main>
+{% endblock content %}
+</body>
+</html>

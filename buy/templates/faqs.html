@@ -1,0 +1,155 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+<title>Buyit - FAQs</title>
+{% endblock title %}
+{% block style %}
+  <style>
+
+
+    .containerr {
+      max-width: 900px;
+      margin: auto;
+      padding: 40px 20px;
+      background-color: #fff;
+    }
+
+    h1 {
+      font-size: 32px;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .faq-item {
+      margin-bottom: 20px;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 15px;
+    }
+
+    .faq-question {
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .faq-question p {
+      margin: 0;
+      color: #333;
+      font-size: 30px;
+    }
+
+    .faq-question:hover {
+      text-decoration: underline;
+    }
+
+    .faq-answer {
+      display: none;
+      margin-top: 10px;
+    }
+
+    .faq-answer p{
+      color: #000;
+      font-size: 30px;
+    }
+
+    .arrow {
+      font-size: 20px;
+      transition: transform 0.3s ease;
+    }
+
+    .rotate {
+      transform: rotate(90deg);
+    }
+
+    
+  </style>
+{% endblock style %}
+{% block content %}
+  <div class="containerr">
+    <h1>Frequently Asked Questions (FAQs)</h1>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleAnswer(this)">
+      <p>How do I place an order?</p> <span class="arrow">>;</span>
+      </div>
+      <div class="faq-answer">
+        <p>You need to sign up or log in. Then browse products, click “Add to Cart,” and follow the checkout steps.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleAnswer(this)">
+        <p>How long does delivery take?</p> <span class="arrow">></span>
+      </div>
+      <div class="faq-answer">
+        <p>Delivery usually takes 2–5 working days depending on your location.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleAnswer(this)">
+        <p>What payment methods do you accept?</p> <span class="arrow">></span>
+      </div>
+      <div class="faq-answer">
+        <p>We accept debit/credit cards, bank transfer, and cash on delivery (for selected areas).</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleAnswer(this)">
+        <p>Can I return a product?</p> <span class="arrow">></span>
+      </div>
+      <div class="faq-answer">
+        <p>Yes. You can return a product within 7 days if it’s unused and in good condition.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleAnswer(this)">
+        <p>Is my payment information secure?</p> <span class="arrow">></span>
+      </div>
+      <div class="faq-answer">
+       <p> Yes. We use secure payment gateways to protect your personal and financial data.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleAnswer(this)">
+        <p>How can I contact customer support?</p> <span class="arrow">></span>
+      </div>
+      <div class="faq-answer">
+        <p>You can reach us via <a href="/contact">our contact page</a> or call us at +234 800 123 4567.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleAnswer(this)">
+         <p>Do I need an account to shop?</p> <span class="arrow">></span>
+      </div>
+      <div class="faq-answer">
+        <p>Yes, only registered users can view and order products on our platform.</p>
+      </div>
+    </div>
+  </div>
+
+
+
+  <script>
+    function toggleAnswer(element) {
+      const answer = element.nextElementSibling;
+      const arrow = element.querySelector(".arrow");
+
+      if (answer.style.display === "block") {
+        answer.style.display = "none";
+        arrow.classList.remove("rotate");
+      } else {
+        answer.style.display = "block";
+        arrow.classList.add("rotate");
+      }
+    }
+  </script>
+
+{% endblock %}

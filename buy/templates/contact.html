@@ -1,0 +1,142 @@
+{% extends 'base.html' %}
+{% block title %}
+<title>Buyit - Contact</title>
+{% endblock title %}
+{% block style %}
+<style>
+  .contact-container {
+    padding: 40px;
+    max-width: 900px;
+    margin: auto;
+    font-family: Arial, sans-serif;
+    background-color: rgb(14,11,12);
+  }
+
+  .contact-heading {
+    font-size: 36px;
+    font-weight: bold;
+    color: rgb(205,134,68);
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .contact-intro {
+    font-size: 16px;
+    color: rgb(205,134,68);
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  .contact-info h3 {
+    font-size: 20px;
+    color: rgb(205,134,68);
+    margin-top: 30px;
+  }
+
+  .contact-info ul {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  .contact-info li {
+    font-size: 16px;
+    color: rgb(205,134,68);
+    margin-bottom: 8px;
+  }
+
+  .contact-form {
+    background-color: rgb(14,11,12);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 40px;
+  }
+
+  .contact-form h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: rgb(205,134,68);
+  }
+
+  .contact-form label {
+    font-size: 14px;
+    color: rgb(205,134,68);
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: rgb(205,134,68);
+  }
+
+  .contact-form .submit-btn {
+    background-color: rgb(205,134,68);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+
+  .contact-form .submit-btn:hover {
+    background-color: rgb(248, 179, 115);
+  }
+
+  .social-connect h3 {
+    font-size: 20px;
+    margin-top: 30px;
+    color: rgb(205,134,68);
+  }
+
+  .social-connect a {
+    color: rgb(205,134,68);
+    text-decoration: none;
+  }
+
+  .social-connect a:hover {
+    text-decoration: underline;
+  }
+
+  .social-connect p {
+    font-size: 16px;
+    color: rgb(205,134,68);
+  }
+</style>
+
+{% endblock style %}
+
+
+{% block content %}
+<div class="contact-container">
+  <h2 class="contact-heading">Contact Us</h2>
+  <p class="contact-intro">We’d love to hear from you! If you have any questions or feedback, please feel free to reach out.</p>
+
+  <div class="contact-form">
+    <h3>Send Us a Message</h3>
+    <form method="POST">
+      {% csrf_token %}
+      {{ form.as_p }}  <!-- This renders the form with fields in <p> tags -->
+      <button type="submit" class="submit-btn">Send Message</button>
+    </form>
+  </div>
+
+  <div class="social-connect">
+    <h3>Connect With Us</h3>
+    <p>
+      <a href="#">Facebook</a> |
+      <a href="#">Instagram</a> |
+      <a href="#">Twitter</a>
+    </p>
+  </div>
+</div>
+{% endblock %}
+

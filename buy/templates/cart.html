@@ -1,0 +1,167 @@
+{% extends 'base.html' %}
+{% block title %}
+<title>Buyit - Cart</title>
+{% endblock title %}
+
+{% block style %}
+<style>
+  /* Container for cart */
+  .cart-container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+  }
+
+  /* Cart item style */
+  .cart-item {
+    border-bottom: 1px solid #ccc;
+    padding: 15px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 16px;
+  }
+
+  .cart-item-details {
+    flex-grow: 1;
+    font-weight: bold;
+  }
+
+  /* Remove button style */
+  .cart-item form button {
+    background-color: #ff4d4d;
+    border: none;
+    color: white;
+    padding: 8px 16px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+
+  .cart-item form button:hover {
+    background-color: #ff1a1a;
+  }
+
+  /* Cart total style */
+  .cart-total {
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 30px;
+    color: #333;
+  }
+
+  /* Add more products link style */
+  .add-products-link {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: rgb(14,11,12);
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .add-products-link:hover {
+    background-color: rgb(14,11,12);
+  }
+
+  /* Empty cart message */
+  .empty-cart-message {
+    font-size: 18px;
+    color: #999;
+    text-align: center;
+    margin-top: 30px;
+  }
+
+  .buttr {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+</style>
+{% endblock style %}
+
+{% block content %}
+<div class="cart-container">
+  <h2>Your Cart</h2>
+
+  {% if cart_items %}
+    {% for item in cart_items %}
+      <div class="cart-item">
+        <div class="cart-item-details">
+          <strong>{{ item.product.name }}</strong><br>
+          ₦{{ item.product.price }} × {{ item.quantity }} = ₦{{ item.total_price }}
+        </div>
+        <form method="POST" action="{% url 'remove-from-cart' item.id %}">
+          {% csrf_token %}
+          <button type="submit">Remove</button>
+        </form>
+      </div>
+    {% endfor %}
+
+    <p class="cart-total">Total: ₦{{ total }}</p>
+
+    <div class="buttr">
+      <div class="addpur">       
+        <a href="{% url 'product_list' %}" class="add-products-link">Add More Products</a>
+
+        <!-- PayPal Form -->
+        <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
+            <input type="hidden" name="cmd" value="_cart">
+            <input type="hidden" name="upload" value="1">
+            <input type="hidden" name="business" value="sb-b78ex45383352@business.example.com">
+
+            {% for item in cart_items %}
+                <input type="hidden" name="item_name_{{ forloop.counter }}" value="{{ item.product.name }}">
+                <input type="hidden" name="amount_{{ forloop.counter }}" value="{{ item.product.price }}">
+                <input type="hidden" name="quantity_{{ forloop.counter }}" value="{{ item.quantity }}">
+            {% endfor %}
+
+            <input type="hidden" name="currency_code" value="USD">
+            <input type="hidden" name="return" value="http://127.0.0.1:8000/payment-success/">
+            <input type="hidden" name="cancel_return" value="{% url 'cart' %}">
+
+            <button type="submit" class="add-products-link">Pay with PayPal</button>
+        </form>
+      </div>
+
+      <div class="leavecart">
+        <a href="{% url 'product_list' %}" class="add-products-link">Leave cart</a>
+      </div>
+    </div>
+
+  {% else %}
+    <p class="empty-cart-message">Your cart is empty.</p>
+  {% endif %}
+</div>
+{% endblock %}
+
+
+{% block script %}
+<script>
+    const exchangeRate = 1500; // 1 USD = ₦1500 (update manually or via API)
+    const totalInUSD = ({{ total }} / exchangeRate).toFixed(2);
+
+    paypal.Buttons({
+        createOrder: function(data, actions) {
+            return actions.order.create({
+                purchase_units: [{
+                    amount: {
+                        value: totalInUSD, // converted from Naira
+                        currency_code: 'USD'
+                    }
+                }]
+            });
+        },
+        onApprove: function(data, actions) {
+            return actions.order.capture().then(function(details) {
+                alert('Transaction completed by ' + details.payer.name.given_name);
+            });
+        }
+    }).render('#paypal-button-container');
+</script>
+
+{% endblock script %}

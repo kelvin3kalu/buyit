@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+{% block title %}
+<title>Buyit - Terms & Conditions</title>
+{% endblock title %}
+{% block style %}
+<style>
+
+
+.containerr {
+  width: 80%;
+  margin: 0 auto;
+  padding: 30px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+
+
+
+
+p {
+  line-height: 1.8;
+  margin-bottom: 15px;
+}
+
+ul {
+  list-style-type: none;
+  padding-left: 20px;
+}
+
+li {
+  margin-bottom: 10px;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Footer Styles */
+
+
+
+button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+button:focus {
+  outline: none;
+}
+</style>
+{% endblock style %}
+
+{% block content %}
+<div class="containerr">
+  <h1>Terms and Conditions</h1>
+  
+  <p><strong>Last Updated:</strong><span class="lasmodi"></span></p>
+  
+  <p>Please read these Terms and Conditions carefully before using our website. By accessing or using our website, you agree to be bound by these Terms and Conditions.</p>
+  
+  <h2>1. Introduction</h2>
+  <p>Welcome to Buyit. By accessing our website (the "Site"), you agree to be bound by these Terms and Conditions and all applicable laws. If you do not agree to these terms, please refrain from using our Site.</p>
+  
+  <h2>2. Use of the Website</h2>
+  <p>You agree to use this website for lawful purposes only. You may not use the website in any manner that could damage, disable, overburden, or impair the website or interfere with any other party's use of the website.</p>
+  
+  <h2>3. Intellectual Property</h2>
+  <p>All content provided on this website, including text, images, logos, videos, and software, is protected by intellectual property laws and is the property of Buyit unless otherwise stated. You are not allowed to reproduce, distribute, or create derivative works from any content without written permission.</p>
+
+  <!-- Add the rest of the terms content here as per your requirements -->
+  
+  <h2>10. Contact Us</h2>
+  <p>If you have any questions or concerns regarding these Terms and Conditions, please contact us at:</p>
+  <p><strong>Email:</strong> <a href="mailto:contact@yourwebsite.com">contact@yourwebsite.com</a></p>
+  <p><strong>Phone:</strong> 333335533</p>
+  <p><strong>Address:</strong> 123 Address Street</p>
+
+</div>
+{% endblock %}
+
+
+{% block scripts %}
+<script>
+const lastmodified = document.lastModified
+const lasmodi = document.querySelector('.lasmodi')
+lasmodi.innerHTML = lastmodified
+</script>
+{% endblock scripts %}

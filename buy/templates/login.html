@@ -1,0 +1,130 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+<title>Buyit - Login</title>
+{% endblock title %}
+
+{% block style %}
+<style>
+    
+    .container {
+        margin-top: 100px;
+        width: 100%;
+        max-width: 400px;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: #fff;
+        padding: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        background-color: rgb(14,11,12);
+    }
+    h2 {
+        text-align: center;
+        color: rgb(205,134,68);
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+    form {
+        display: flex;
+        flex-direction: column;
+       
+    }
+    form input, form button {
+        padding: 6px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 16px;
+    }
+    form input:focus, form button:focus {
+        outline: none;
+        border-color: rgb(205,134,68);
+    }
+    button {
+        background-color: rgb(205,134,68);
+        color: white;
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+    button:hover {
+        background-color: rgb(248, 179, 115);
+    }
+    p {
+        text-align: center;
+        font-size: 14px;
+        color: rgb(205,134,68);
+    }
+    p a {
+        color: rgb(205,134,68);
+        text-decoration: none;
+    }
+    p a:hover {
+        text-decoration: underline;
+    }
+    .oggle{
+        cursor: pointer;
+    }
+    .oggle:hover{
+        text-decoration: underline;
+    }
+    a {
+        color: rgb(205,134,68);
+        text-decoration: none;
+    }
+
+    @media screen and (max-width: 600px) {
+        .container {
+            width: 90%;
+            padding: 15px;
+        }
+        h2 {
+            font-size: 20px;
+        }
+        form input, form button {
+            font-size: 14px;
+        }
+    }
+</style>
+{% endblock style %}
+
+
+
+{% block content %}
+<div class="container">
+    <h2>Login</h2>
+    <form method="post" action="{% url 'login' %}">
+    <p>{% if messages %}
+{% for message in messages %}
+    {{ message }}
+{% endfor %}
+{% endif %}</p>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="text" name="username" placeholder="Enter your username" required><br><br><br>
+        <input type="password" name="password" placeholder="Enter your password" class="password" required>
+        <p class="oggle">Show</p><br>
+        <button type="submit">Login</button>
+    </form>
+    <p>Don't have an account? <a href="{% url 'register' %}">Register here</a></p>
+    <a href="{% url 'logout' %}" >Logout</a>
+</div>
+{% endblock content %}
+{% block script %}
+
+
+<script>
+document.querySelector(".oggle").addEventListener("click", () => {
+    const password = document.querySelector(".password");
+    if (password.type === "password") {
+        password.type = "text";
+        document.querySelector(".toggle").innerHTML = "Hide";
+    } else {
+        password.type = "password";
+        document.querySelector(".toggle").innerHTML = "Show";
+    }
+})
+
+</script>
+{% endblock script %}

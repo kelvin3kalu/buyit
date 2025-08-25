@@ -1,0 +1,156 @@
+body {
+    padding-top: 100px;
+}
+
+header {
+    background-image: url("blue backgound.jpeg");
+    background-size: cover;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+}
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+.logo a {
+    color: #f4f4f4;
+    text-decoration: none;
+    font-family: 'Tangerine', serif;
+    font-size: 25px;
+    font-style: italic;
+}
+.butt button {
+    background-color: grey;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 12px;
+    border: none;
+}
+
+footer {
+    background-color: #222;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: space-between;
+    margin: auto;
+    height: 600px;
+}
+.lasdiv h3 {
+    color: #fff;
+}
+.lasdiv li {
+    list-style: none;
+}
+.lasdiv a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.contact h3 {
+    color: #fff;
+}
+.contact li {
+    list-style: none;
+}
+.contact a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.social h3 {
+    color: #fff;
+}
+.social li {
+    list-style: none;
+}
+.social a {
+    color: #fff;
+    text-decoration: none;
+}
+.right {
+    text-align: center;
+}
+.right p {
+    color: #fff;
+}
+.tlink {
+    display: none;
+}
+.tbutt{
+    display: none;
+}
+.tbutt button {
+    background-color: white;
+    border: none;
+    color: grey;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 12px;
+    border: none;
+}
+.toogle ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+
+.toogle ul li a {
+    color: white;
+    text-decoration: none;
+}
+.toogle {
+    background-color: grey;
+    border-radius: 5px;
+    width: 200px;
+}
+.hambuger {
+    display: none;
+}
+@media screen and (max-width: 768px) {
+    .butt{
+        display: none;
+    }
+    .link{
+        display: none;
+    }
+    .hambuger{
+        display: block;
+        color: #000;
+        padding: 10px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+}
