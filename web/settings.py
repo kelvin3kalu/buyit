@@ -141,3 +141,7 @@ LOGIN_URL = 'notlog'
 
 PAYPAL_RECEIVER_EMAIL = config('PAYPAL_RECEIVER_EMAIL')
 PAYPAL_TEST = config('PAYPAL_TEST' )
+
+import os
+if os.environ.get("RUN_MAIN") or os.environ.get("WERKZEUG_RUN_MAIN"):
+    from buy.createsuperuser import *
