@@ -14,3 +14,10 @@ from django.core.wsgi import get_wsgi_application
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'web.settings')
 
 application = get_wsgi_application()
+
+
+
+if os.environ.get("RUN_MAIN") == "true":  # makes sure it runs only once
+    from buy.createsuperuser import run
+    run()
+
